@@ -6,6 +6,11 @@ import Ganador from './Componentes/Ganador';
 import Computadora from './Componentes/Computadora';
 
 function Game() {
+
+
+
+
+  
   return (
     <div class="grid-container">
         <div class="item1">Bienvenidos a Piedra, Papel, Tijera, Lagarto o Spock!</div>
