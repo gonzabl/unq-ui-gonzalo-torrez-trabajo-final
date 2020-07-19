@@ -4,46 +4,30 @@ body {
     
 }
 
-.wrapper {
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
     display: grid;
+    grid-template-areas:
+        'header header header header header header'
+        'menu main main main right right'
+        'menu footer footer footer footer footer';
     grid-gap: 10px;
-    grid-auto-rows: 100px;
-    background-color: rgb(165, 3, 3);
-    color: #444;
+    background-color: #2196F3;
+    padding: 10px;
 }
 
-.box {
-    background-color: #444;
-    color: rgb(8, 6, 6);
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 150%;
-}
-
-.a {
-    grid-column: 1 / span 2;
-}
-
-.b {
-    grid-column: 1 / span 2;
-}
-
-.c {
-    grid-column: 3 ;
-    grid-row: 1 / span 3;
-}
-
-.d {
-    grid-column: 1 ;
-    grid-row: 3 ;
-}
-
-.e {
-    grid-column: 2 ;
-    grid-row: 3 ;
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
 }
 
 .reglas{
     width: 200px;
-    height: 200px;
-}
+} 
