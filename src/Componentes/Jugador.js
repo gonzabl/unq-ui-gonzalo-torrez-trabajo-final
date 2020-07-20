@@ -6,10 +6,10 @@ import tijera from '../img/tijera.png'
 import lagarto from '../img/lagarto.png'
 import spock from '../img/spock.png'
 
-function Jugador(props){
+function Jugador(){
 
     const [imagen,setImagen] = useState(selector);
-
+    const [elec, setElec] = useState();
 
     const handleChange = (e)=>{
         setImagen(e.target.value);
