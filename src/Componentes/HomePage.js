@@ -11,9 +11,8 @@ function HomePage(){
         <div class="grid-container">
         <div class="item1">Bienvenidos a Piedra, Papel, Tijera, Lagarto o Spock!</div>
         <div class="item2"><Reglas /></div>
-        <div class="item3"><Game /></div>  
+        <Game />
         <div class="item4"><Computadora /></div>
-        <div class="item5"><Ganador /> </div>
     </div>
     );
 }

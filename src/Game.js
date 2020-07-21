@@ -6,6 +6,7 @@ import papel from './img/papel.png'
 import tijera from './img/tijera.png'
 import lagarto from './img/lagarto.png'
 import spock from './img/spock.png'
+import Ganador from './Componentes/Ganador';
 
 
 class Game extends React.Component {
@@ -24,37 +25,31 @@ class Game extends React.Component {
     this.setState(()=>({jugador:opcion}));
   }
 
-  // jugadas (){
-  //   return(
-  //     <div>
-  //           <h3>Jugador</h3>
-  //           <h5>Seleccionar:</h5>
-  //           <div><span class="rounded-sm"><img src={this.state.imagen} alt="img" width="20%"/></span></div>
-  //           <div class="btn-group">
-  //               <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(piedra,"piedra")}>Piedra</button>
-  //               <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(papel,"papel")}>Papel</button>
-  //               <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(tijera,"tijera")}>Tijera</button>
-  //               <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(lagarto,"lagarto")}>Lagarto</button>
-  //               <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(spock,"spock")}>Spock</button>
-  //           </div>
-  //   </div>
-  //   );
-  // }
+  eleccionComputadora(){
+    let eleccion = Math.floor(Math.random() * 5);
+    const opciones = ["piedra","papel","tijera","lagarto","spock"];
+    this.setState(()=>({computadora:opciones[eleccion]}));
+  }
 
   render(){
     return(
       <div>
-            <h3>Jugador</h3>
-    <h5>Seleccionar: {this.state.jugador}</h5>
-            <div><span class="rounded-sm"><img src={this.state.imagen} alt="img" width="20%"/></span></div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(piedra,"piedra")}>Piedra</button>
-                <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(papel,"papel")}>Papel</button>
-                <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(tijera,"tijera")}>Tijera</button>
-                <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(lagarto,"lagarto")}>Lagarto</button>
-                <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(spock,"spock")}>Spock</button>
-            </div>
-    </div>
+          <div class="item3">
+              <h3>Jugador</h3>
+              <h5>Seleccionar: {this.state.jugador}</h5>
+              <div><span class="rounded-sm"><img src={this.state.imagen} alt="img" width="20%"/></span></div>
+              <div class="btn-group">
+                  <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(piedra,"piedra")}>Piedra</button>
+                  <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(papel,"papel")}>Papel</button>
+                  <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(tijera,"tijera")}>Tijera</button>
+                  <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(lagarto,"lagarto")}>Lagarto</button>
+                  <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(spock,"spock")}>Spock</button>
+              </div>
+          </div>
+          <div class="item5">
+            <Ganador player={this.state.jugador}/>
+          </div>
+      </div>
     );
   }
 }
