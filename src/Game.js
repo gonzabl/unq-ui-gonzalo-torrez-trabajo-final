@@ -7,6 +7,7 @@ import tijera from './img/tijera.png'
 import lagarto from './img/lagarto.png'
 import spock from './img/spock.png'
 import Ganador from './Componentes/Ganador';
+import Partida from './Componentes/Partida';
 
 
 class Game extends React.Component {
@@ -21,15 +22,15 @@ class Game extends React.Component {
     }
 
   handleClick(img,opcion){
-    this.setState(()=> ({imagen:img}) );
-    this.setState(()=>({jugador:opcion}));
+    this.setState({imagen:img});
+    this.setState({jugador:opcion});
   }
 
-  eleccionComputadora(){
-    let eleccion = Math.floor(Math.random() * 5);
-    const opciones = ["piedra","papel","tijera","lagarto","spock"];
-    this.setState(()=>({computadora:opciones[eleccion]}));
-  }
+  // eleccionComputadora(){
+  //   let eleccion = Math.floor(Math.random() * 5);
+  //   const opciones = ["piedra","papel","tijera","lagarto","spock"];
+  //   this.setState(()=>({computadora:opciones[eleccion]}));
+  // }
 
   render(){
     return(
@@ -47,7 +48,8 @@ class Game extends React.Component {
               </div>
           </div>
           <div class="item5">
-            <Ganador player={this.state.jugador}/>
+            {/* <Ganador player={this.state.jugador}/> */}
+            <Partida player={this.state.jugador}/>
           </div>
       </div>
     );

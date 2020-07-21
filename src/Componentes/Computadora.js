@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import selector from '../img/selector.png'
 
-function Computadora(){
-
-    const [seleccion,setSeleccion] = useState("");
-
+function Computadora(props){
+    
     return (
         <div>
             <h3>Computadora</h3>
             <br />
-            <div><span class="rounded-sm"><img src={selector} width="25%"/></span></div>
+            <div><span class="rounded-sm"><img src={props.value} width="25%"/></span></div>
         </div>
     );
 } 

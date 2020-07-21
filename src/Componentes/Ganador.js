@@ -1,24 +1,46 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
+import selector from '../img/selector.png'
+import piedra from '../img/piedra.png'
+import papel from '../img/papel.png'
+import tijera from '../img/tijera.png'
+import lagarto from '../img/lagarto.png'
+import spock from '../img/spock.png'
+import Computadora from './Computadora';
 
 function Ganador(props){
     
-    const [cpu,setCpu] = useState("");
     const jugador = props.player;
+    const [cpu,setCpu] = useState("");
+    const [img,setImg] = useState(selector);
+    const [ganador,setGanador] = useState("");
+    
     const opciones = ["piedra","papel","tijera","lagarto","spock"];
+    const imagenes = [piedra,papel,tijera,lagarto,spock];
+    
 
-    function eleccionComputadora() {
+    // function eleccionComputadora() {
+    //     let eleccion = Math.floor(Math.random() * 5);
+    //     setCpu(opciones[eleccion]);
+    //     setImg(imagenes[eleccion]);
+    // }
+
+    useEffect(()=>{
         let eleccion = Math.floor(Math.random() * 5);
         setCpu(opciones[eleccion]);
-    }
+        setImg(imagenes[eleccion]);
+    },[opciones, imagenes]);
 
-    const calcularGanador= (j)=> {
+    const calcularGanador= ()=> {
         //eleccionComputadora();
         let resultado;
-        let e = Math.floor(Math.random() * 5);
-        console.log(e);
-        let c = opciones[e];
-        console.log(c);
-        switch(j) {
+
+        //let e = Math.floor(Math.random() * 5);
+        console.log("cpu eligio "+cpu);
+       // let c = opciones[e];
+        let c = cpu
+        console.log("c eligio "+c);
+        
+        switch(jugador) {
             case "piedra":
                 if(c === "piedra"){
                     resultado = "empate";
@@ -39,7 +61,7 @@ function Ganador(props){
                 break;
             case "tijera":
                 if(c === "tijera"){
-                    resultado = "empate";
+                    resultado = "Empate";
                 }else if(c === "papel" || c === "lagarto"){
                     resultado = "Ganador Jugador";
                 }else{
@@ -66,16 +88,21 @@ function Ganador(props){
                 break;
         }
         console.log(resultado);
-        return(
-            <div class="alert alert-success alert-dismissible">
-                <strong>{resultado}</strong>
-            </div>   
-        );
+        setGanador(resultado);
     }
 
     return (
+        
         <div>
-            <button onClick={() => calcularGanador(jugador)}>Jugar</button>
+            <button onClick={() => calcularGanador()}>Jugar</button>
+            {/* <Computadora valor={img}/> */}
+        
+            <div class="item4">
+            <h3>Computadora</h3>
+            <h4>{ganador}, cpu eligio {cpu}</h4>
+            <div><span class="rounded-sm"><img src={img} alt="cpuImg" width="25%"/></span></div>
+            
+        </div>
         </div>
     );
 } 
