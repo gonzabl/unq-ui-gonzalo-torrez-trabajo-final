@@ -6,10 +6,9 @@ function HomePage(){
 
     return(
         <div class="grid-container">
-            <div class="item1">Bienvenidos a Piedra, Papel, Tijera, Lagarto o Spock!</div>
+            <div class="item1"><h1>Bienvenidos a Piedra, Papel, Tijera, Lagarto o Spock!</h1></div>
             <div class="item2"><Reglas /></div>
-            <Game />
-
+            <div class="item3"><Game /> </div>
         </div>
     );
 }

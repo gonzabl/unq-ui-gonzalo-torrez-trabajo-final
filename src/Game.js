@@ -27,22 +27,17 @@ class Game extends React.Component {
 
   render(){
     return(
-      <div>
-          <div class="item3">
+      <div class="inner-container">
+          <div class="player">
               <h3>Jugador</h3>
-              <h5>Seleccionar: {this.state.jugador}</h5>
               <div><span class="rounded-sm"><img src={this.state.imagen} alt="img" width="20%"/></span></div>
-              <div class="btn-group">
-                  <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(piedra,"piedra")}>Piedra</button>
-                  <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(papel,"papel")}>Papel</button>
-                  <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(tijera,"tijera")}>Tijera</button>
-                  <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(lagarto,"lagarto")}>Lagarto</button>
-                  <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(spock,"spock")}>Spock</button>
-              </div>
+              <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(piedra,"piedra")}>Piedra</button>
+              <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(papel,"papel")}>Papel</button>
+              <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(tijera,"tijera")}>Tijera</button>
+              <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(lagarto,"lagarto")}>Lagarto</button>
+              <button type="button" class="btn btn-primary" onClick={()=>this.handleClick(spock,"spock")}>Spock</button>
           </div>
-          <div class="item5">
-            <Partida player={this.state.jugador}/>
-          </div>
+          <div class="cpu"><Partida player={this.state.jugador}/> </div>
       </div>
     );
   }
