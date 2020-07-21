@@ -1,11 +1,10 @@
-import React, { useState, useEffect }  from 'react';
+import React  from 'react';
 import selector from '../img/selector.png'
 import piedra from '../img/piedra.png'
 import papel from '../img/papel.png'
 import tijera from '../img/tijera.png'
 import lagarto from '../img/lagarto.png'
 import spock from '../img/spock.png'
-import Computadora from './Computadora';
 
 class Partida extends React.Component{
         constructor(props){
@@ -20,14 +19,6 @@ class Partida extends React.Component{
     opciones = ["piedra","papel","tijera","lagarto","spock"];
     imagenes = [piedra,papel,tijera,lagarto,spock];
     
-
-    // eleccionComputadora() {
-    //     let eleccion = Math.floor(Math.random() * 5);
-    //     this.setState({img:this.imagenes[eleccion]} );
-    //     this.setState({cpu:this.opciones[eleccion]} );
-    // }
-
-
     calcularGanador(){
         let resultado;
         let e = Math.floor(Math.random() * 5);
