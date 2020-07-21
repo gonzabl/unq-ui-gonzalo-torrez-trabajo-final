@@ -33,7 +33,7 @@ class Partida extends React.Component{
                             }else if(c === "tijera" || c === "lagarto"){
                                 resultado = "Ganador Jugador!!";
                             }else{
-                                resultado = "Ganador Computadora......";
+                                resultado = "Ganador Computadora...";
                             }
                             break;
             case "papel":
@@ -72,6 +72,7 @@ class Partida extends React.Component{
                                 resultado = "Ganador Computadora...";
                             }
                             break;
+            default:;
         }
         this.setState({ganador:resultado});
         this.setState({cpu:c});
@@ -82,7 +83,7 @@ class Partida extends React.Component{
         return (
             <div>
                 <Computadora img={this.state.img} />
-                <Ganador  onClick={() => this.calcularGanador()} winner={this.state.ganador} />
+                <Ganador  onClick={() => this.calcularGanador()} winner={this.state.ganador} player={this.props.player} ia={this.state.cpu} />
             </div>
         );
     }
